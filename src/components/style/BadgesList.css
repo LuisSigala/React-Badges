@@ -1,0 +1,13 @@
+.BadgesListitem{
+    width: 700px;
+    height: 180px;
+    display: flex;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.4);
+}
+
+.List{
+   display: flex;
+   justify-content: center; 
+}

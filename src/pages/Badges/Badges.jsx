@@ -1,4 +1,5 @@
 import React from "react"
+import SkeletonItem from "../../components/SkeletonItem"
 import api from "../../libs/api"
 import "./Badges.css"
 
@@ -37,6 +38,10 @@ class Badges extends React.Component{
 
 
     render(){
+        if(this.state.loading==true && !this.state.data){
+            return <SkeletonItem></SkeletonItem>
+        }
+
         return(
             <React.Fragment>
                 <h1>All Badges</h1>
