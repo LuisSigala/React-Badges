@@ -1,17 +1,17 @@
 import React from "react"
-import "./style/BadgeList.css"
+import "./style/BadgesList.css"
 
-class BagesListItem extends React.Component{
+class BadgesListItem extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <div className="BadgeListItem mt-5">
+                <div className="BadgesListItem mt-5">
                     <div className="col-5">
                         <div className="Item__profilePicture">
                             <img src={this.props.badge.profile_picture_url} alt="Profile_picture" />
                         </div>
                         <div className="Item__background">
-                            <img src={this.props.badge.header__img_url} alt="profile_picture" />
+                            <img src={this.props.badge.header_img_url} alt="profile_picture" />
                         </div>
                     </div>
                     <div className="col-7 my-5">
@@ -32,9 +32,19 @@ class BadgesList extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <p>List</p>
+                <div className="container List mb-5">
+                    <div className="list-unstyled">
+                        {this.props.badges.map( (badge) =>{
+                            return(
+                                <div key={badge._id}>
+                                    <BadgesListItem badge={badge}></BadgesListItem>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </React.Fragment>
-        )
+        );
     }
 }
 

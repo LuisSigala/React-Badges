@@ -1,6 +1,5 @@
 import React from "react" 
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import './Layout.css';
 
 function Layout(props){
@@ -9,7 +8,6 @@ function Layout(props){
             <div className="Layout">
                 <Header></Header>
                 {props.children}
-                <Footer></Footer>
             </div>
         </React.Fragment>
     );
