@@ -1,4 +1,6 @@
 import React from "react"
+import PageError from "./PageError"
+import Loader from "./Loader"
 import BadgeDetailsUi from "./BadgeDetailsUi"
 import api from "../libs/fetch"
 
@@ -38,14 +40,23 @@ class BadgeDetails extends React.Component {
         this.setState({ loading: true, error: null });
         try {
             await api.badges.remove(this.props.match.params.badgeId);
-            this.setState({ loading: false })
-            this.props.history.push("/badges")
+            this.setState({ loading: false });
+            this.props.history.push("/badges");
         } catch (error) {
             this.setState({ loading: false, error: error });
         }
     };
 
     render() {
+
+        if (this.state.loading) {
+            return <Loader></Loader>;
+        }
+
+        if (this.state.error) {
+            return <PageError error={this.state.error.message}></PageError>
+        }
+
         return (
             <BadgeDetailsUi
                 onCloseModal={this.handleCloseModal}

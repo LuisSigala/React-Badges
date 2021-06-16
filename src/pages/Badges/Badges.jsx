@@ -1,75 +1,79 @@
 import React from "react"
 import SkeletonItem from "../../components/SkeletonItem"
 import BadgesList from "../../components/BadgeList"
+import PageError from "../../components/PageError"
 import Footer from "../../components/Footer"
 import Button from "../../components/MainButton"
 import api from "../../libs/fetch"
 import "./Badges.css"
 
-class Badges extends React.Component{
+class Badges extends React.Component {
 
-    state={
+    state = {
         loading: true,
         error: null,
         data: undefined,
-        handle_footer: {bottom: 0},
+        handle_footer: { bottom: 0 },
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         this.fetchData();
-        this.setFetchInterval();
-    }
-
-
-    fetchData = async() => {
-        this.setState({loading: true, error: null})
-        try {
-            const data = await api.badges.list();
-            data.reverse();
-            this.setState({loading: false, data: data})
-
-            if(data.length > 3){
-                this.setState({handle_footer:{position: "relative"}})
-            }else{
-                this.setState({handle_footer:{bottom: 0}})
-            }
-
-        } catch (error) {
-            this.setState({loading: false, error: error, data: []})
+        if (!this.state.error) {
+            this.setFetchInterval();
         }
     }
 
-    setFetchInterval(){
+
+    fetchData = async () => {
+        this.setState({ loading: true, error: null })
+        try {
+            const data = await api.badges.list();
+            data.reverse();
+            this.setState({ loading: false, data: data })
+
+            if (data.length > 3) {
+                this.setState({ handle_footer: { position: "relative" } })
+            } else {
+                this.setState({ handle_footer: { bottom: 0 } })
+            }
+
+        } catch (error) {
+            this.setState({ loading: false, error: error})
+        }
+    }
+
+    setFetchInterval() {
         this.interval = setInterval(this.fetchData, 3000)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.interval)
     }
 
 
-    render(){
-        if(this.state.loading==true && !this.state.data){
-            return <SkeletonItem></SkeletonItem>
+    render() {
+        if (this.state.loading == true && !this.state.data) {
+            return <SkeletonItem></SkeletonItem>;
         }
-
-        return(
+        if(this.state.error){
+            return <PageError error={this.state.error.message}></PageError>
+        }
+        return (
             <React.Fragment>
                 <div className="Badges__container">
                     <div className="Badges__button">
                         <Button
-                        theme={"Button-light"}
-                        contentText = {"New Badge"}
-                        link={"/new"}
+                            theme={"Button-light"}
+                            contentText={"New Badge"}
+                            link={"/new"}
                         >
-
                         </Button>
                     </div>
                 </div>
                 <BadgesList badges={this.state.data}></BadgesList>
                 <Footer s={this.state.handle_footer}></Footer>
             </React.Fragment>
-        )
+        );
     }
 }
 
