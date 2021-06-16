@@ -16,12 +16,12 @@
     padding-top: 5px;
 }
 
-.Button::hover{
+.Button:hover{
     background-color: white;
     border: 2px solid #007336;
     font-weight: bold;
 }
-.Button::hover p{
+.Button:hover p{
     color: #007336;
 }
 .Button-light{
@@ -42,11 +42,11 @@
     padding-top: 5px;
 }
 
-.Button-light::hover{
+.Button-light:hover{
     background-color: #007336;
     border: 2px solid transparent;
     font-weight: bold;
 }
-.Button-light::hover p{
+.Button-light:hover p{
     color: white;
 }

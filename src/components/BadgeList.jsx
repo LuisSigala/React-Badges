@@ -1,10 +1,10 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./style/BadgesList.css"
 
-class BadgesListItem extends React.Component{
-    render(){
-        return(
+class BadgesListItem extends React.Component {
+    render() {
+        return (
             <React.Fragment>
                 <div className="BadgesListItem mt-5">
                     <div className="col-5">
@@ -29,13 +29,13 @@ class BadgesListItem extends React.Component{
     }
 }
 
-const useSearchBadges = badges =>{
+const useSearchBadges = badges => {
 
-    const[query, setQuery] = React.userState('');
-    const[filteredBadges, setfilteredBadges] = React.useState(badges);
+    const [query, setQuery] = React.useState('');
+    const [filteredBadges, setfilteredBadges] = React.useState(badges);
 
-    React.useMemo(() =>{
-        const result = badges.filter( badge =>{
+    React.useMemo(() => {
+        const result = badges.filter(badge => {
             return '${badge.name}'.toLowerCase().includes(query.toLowerCase);
         });
 
@@ -43,25 +43,25 @@ const useSearchBadges = badges =>{
     }, [badges, query]);
 
 
-    return { quey, setQuery, filteredBadges};
+    return { query, setQuery, filteredBadges };
 };
 
-const BadgesList = props =>{
+const BadgesList = props => {
     const badges = props.badges;
 
-    const{ query, setQuery, filteredBadges } = useSearchBadges(badges);
+    const { query, setQuery, filteredBadges } = useSearchBadges(badges);
 
 
-    if(filteredBadges.lenght ==0){
-        return(
+    if (filteredBadges.lenght == 0) {
+        return (
             <div className="">
                 <div className="form.group">
                     <label>Filter Badges</label>
                     <input
                         type="text"
                         className="form-control"
-                        value = { query }
-                        onChange = { (e) =>{
+                        value={query}
+                        onChange={(e) => {
                             setQuery(e.target.value)
                         }}
                     />
@@ -74,13 +74,13 @@ const BadgesList = props =>{
         );
     }
 
-        return(
-            <React.Fragment>
-                <div className="BadgesList">
+    return (
+        <React.Fragment>
+            <div className="BadgesList">
                 <div className="container List mb-5">
                     <div className="list-unstyled">
-                        {props.badges.map( (badge) =>{
-                            return(
+                        {props.badges.map((badge) => {
+                            return (
                                 <div key={badge._id}>
                                     <Link className="text-reset text-decoration-none" to={'/${badge._id}'}>
                                         <BadgesListItem badge={badge}></BadgesListItem>
@@ -89,10 +89,10 @@ const BadgesList = props =>{
                             );
                         })}
                     </div>
-                    </div>
                 </div>
-            </React.Fragment>
-        );
+            </div>
+        </React.Fragment>
+    );
 }
 
 export default BadgesList;

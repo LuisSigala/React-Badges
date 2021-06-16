@@ -2,10 +2,9 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./style/Modal.css"
 
-const Modal = props =>{
-
-    if(!props.isOpen){
-        return null
+const Modal = (props) => {
+    if (!props.isOpen) {
+        return null;
     }
 
     return ReactDOM.createPortal(
@@ -19,8 +18,6 @@ const Modal = props =>{
         </div>,
         document.getElementById("modal")
     );
-
-
-}
+};
 
 export default Modal;

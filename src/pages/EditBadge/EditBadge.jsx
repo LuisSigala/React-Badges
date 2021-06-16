@@ -3,7 +3,7 @@ import Hero from "../../components/Hero"
 import Badge from "../../components/Badge"
 import BadgeForm from "../../components/BadgeForm"
 import Footer from "../../components/Footer"
-import NewBadge from "../NewBadge/NewBadge"
+import "../NewBadge/NewBadge.css"
 import api from "../../libs/fetch"
 
 
@@ -20,8 +20,7 @@ class EditBadge extends React.Component{
             city: "",
             followers: "",
             likes: "",
-            post: "",
-            posts:"",
+            post: ""
         },
     };
 
@@ -54,7 +53,7 @@ class EditBadge extends React.Component{
         this.setState({loading:true, error:null})
 
         try {
-            await api.badges.update(this.props.match.params, this.state.form)
+            await api.badges.update(this.props.match.params.badgeId, this.state.form)
             this.setState({loadign:false, error:null})
             this.props.history.push("/badges")
         } catch (error) {
@@ -65,7 +64,7 @@ class EditBadge extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <Hero h={"15vh"}></Hero>
+                <Hero h={"10vh"}></Hero>
                 <div className="container">
                     <div className="row">
                         <Badge

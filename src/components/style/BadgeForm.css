@@ -1,7 +1,8 @@
 .BadgeForm{
     width: 450px;
-    margin-top: -400px;
-    margin-left: 1000px;
+    height: 400px;
+    margin-top: -460px;
+    margin-left: 650px;
     border: 1px solid lightgray;
     padding: 50px;
     border-radius: 15px;
@@ -9,7 +10,8 @@
 
 
 .Submit__button{
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 115px;
     background-color: white;
     padding: 10px 40px;
     border-radius: 5px;
@@ -17,7 +19,7 @@
     align-self: center;
     border: 1px solid lightgray;
 }
-.Submit__button::hover{
+.Submit__button:hover{
     background-color: #007336;
     color: white;
     font-weight: bold;
