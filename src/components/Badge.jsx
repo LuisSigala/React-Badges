@@ -1,6 +1,4 @@
 import React, {Component} from "react"; 
-import HeaderBackground from '../images/badge_header.jpg'
-import ProfilePic from '../images/profile3.jpg'
 import "./style/Badge.css";
 
 
