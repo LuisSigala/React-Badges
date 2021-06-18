@@ -22,7 +22,7 @@ class EditBadge extends React.Component{
             city: "",
             followers: "",
             likes: "",
-            post: ""
+            post: "",
         },
     };
 
@@ -76,7 +76,7 @@ class EditBadge extends React.Component{
         return(
             <React.Fragment>
                 <Hero h={"10vh"}></Hero>
-                <div className="container">
+                <div className="container mt-5">
                     <div className="row">
                         <Badge
                             header_img_url = {this.state.form.header_img_url || "https://images.freeimages.com/images/small-previews/89a/one-tree-hill-1360813.jpg"}

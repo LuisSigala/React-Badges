@@ -1,17 +1,20 @@
 .BadgeForm{
     width: 450px;
-    height: 400px;
+    height: 460px;
     margin-top: -460px;
-    margin-left: 650px;
+    margin-left: 640px;
     border: 1px solid lightgray;
     padding: 50px;
     border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    align-self: center;
 }
 
 
 .Submit__button{
     margin-top: 10px;
-    margin-left: 115px;
+    margin-left: 80px;
     background-color: white;
     padding: 10px 40px;
     border-radius: 5px;
@@ -19,8 +22,15 @@
     align-self: center;
     border: 1px solid lightgray;
 }
+
 .Submit__button:hover{
     background-color: #007336;
     color: white;
     font-weight: bold;
 }
+
+.ree{
+    margin-left: 40px;
+    margin-right: 40px;
+    align-items: center;
+} 

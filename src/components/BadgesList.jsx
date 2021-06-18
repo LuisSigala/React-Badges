@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import Button from "./MainButton"
 import "./style/BadgesList.css"
 
 class BadgesListItem extends React.Component {
@@ -29,14 +30,14 @@ class BadgesListItem extends React.Component {
     }
 }
 
-const useSearchBadges = badges => {
+const useSearchBadges = (badges) => {
 
     const [query, setQuery] = React.useState('');
     const [filteredBadges, setfilteredBadges] = React.useState(badges);
 
     React.useMemo(() => {
-        const result = badges.filter(badge => {
-            return '${badge.name}'.toLowerCase().includes(query.toLowerCase);
+        const result = badges.filter((badge) => {
+            return `${badge.name}`.toLowerCase().includes(query.toLowerCase());
         });
 
         setfilteredBadges(result);
@@ -46,7 +47,7 @@ const useSearchBadges = badges => {
     return { query, setQuery, filteredBadges };
 };
 
-const BadgesList = props => {
+const BadgesList = (props) => {
     const badges = props.badges;
 
     const { query, setQuery, filteredBadges } = useSearchBadges(badges);
@@ -54,15 +55,15 @@ const BadgesList = props => {
 
     if (filteredBadges.lenght == 0) {
         return (
-            <div className="">
-                <div className="form.group">
+            <div>
+                <div className="form-group">
                     <label>Filter Badges</label>
                     <input
                         type="text"
                         className="form-control"
                         value={query}
-                        onChange={(e) => {
-                            setQuery(e.target.value)
+                        onChange={ (e) => {
+                            setQuery(e.target.value);
                         }}
                     />
                     <h3>No badges were found.</h3>
@@ -77,12 +78,44 @@ const BadgesList = props => {
     return (
         <React.Fragment>
             <div className="BadgesList">
+                <div className="filter">
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group mt-3">
+                                <label>Filter Badges</label>
+                                <input
+                                    type="text"
+                                    className="form-control BadgeList__search"
+                                    value={query}
+                                    onChange={(e) => {
+                                        setQuery(e.target.value)
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-3">
+                            <div className="Badges__container">
+                                <div className="Badges__button">
+                                    <Button
+                                        theme={"Button-light"}
+                                        contentText={"New Badge"}
+                                        link={"/new"}
+                                    >
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="container List mb-5">
                     <div className="list-unstyled">
-                        {props.badges.map((badge) => {
+                        {filteredBadges.map((badge) => {
                             return (
                                 <div key={badge._id}>
-                                    <Link className="text-reset text-decoration-none" to={'/${badge._id}'}>
+                                    <Link
+                                        className="text-reset text-decoration-none"
+                                        to={`/${badge._id}`}
+                                    >
                                         <BadgesListItem badge={badge}></BadgesListItem>
                                     </Link>
                                 </div>
@@ -93,6 +126,6 @@ const BadgesList = props => {
             </div>
         </React.Fragment>
     );
-}
+};
 
 export default BadgesList;

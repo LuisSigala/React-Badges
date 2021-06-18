@@ -55,7 +55,7 @@ class BadgeDetails extends React.Component {
 
         if (this.state.error) {
             return <PageError error={this.state.error.message}></PageError>
-        }
+        } 
 
         return (
             <BadgeDetailsUi

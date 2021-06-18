@@ -15,6 +15,7 @@
   overflow: hidden;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  display: flex;
 }
 
 .Badge__header img{
@@ -66,4 +67,8 @@ i{
   font-style: normal;
   font-weight: 100;
   color: rgb(150, 150, 150);
+}
+
+.topline{
+  margin-top: 20px;
 }

@@ -6,9 +6,10 @@ class BadgeForm extends React.Component{
         return(
             <React.Fragment>
                 <div className="BadgeForm">
-                    <form onSubmit={this.props.onSubmit}>
+                    <div >
+                    <form onSubmit={this.props.onSubmit} className="ree">
                         <div className="form-group mb-2">
-                            <label className="mb-1">
+                            <label className="mb-2">
                                 Name
                             </label>
                             <input
@@ -30,7 +31,7 @@ class BadgeForm extends React.Component{
                               onChange={this.props.onChange}
                               value={this.props.formValues.profile_picture_url}
                             />
-                            <div className="form-group mb-2">
+                            <div className="form-group col mb-2">
                             <label className="mb-1">
                                 header_picture
                             </label>
@@ -46,6 +47,7 @@ class BadgeForm extends React.Component{
                             <label className="mb-1">
                                 Age
                             </label>
+                            <br/>
                             <input
                               type="text"
                               className="form.control"
@@ -55,9 +57,10 @@ class BadgeForm extends React.Component{
                             />
                             </div>
                             <div className="form-group mb-2">
-                                <label className="mb-1">
+                                <label className="mb-2">
                                     City
                                 </label>
+                                <br/>
                                 <input
                                 type="text"
                                 className="form.control"
@@ -69,6 +72,7 @@ class BadgeForm extends React.Component{
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </React.Fragment>
         );

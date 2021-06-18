@@ -62,10 +62,10 @@ class NewBadge extends React.Component{
 
         return(
             <React.Fragment>
-                <Hero h={"15vh"}></Hero>
-                <div className="container">
+                <Hero h={"10vh"}></Hero>
+                <div className="container mt-5">
                     <div className="row">
-                        <Badge
+                    <Badge
                             header_img_url = {this.state.form.header_img_url || "https://images.freeimages.com/images/small-previews/89a/one-tree-hill-1360813.jpg"}
                             profile_picture_url = {this.state.form.profile_picture_url || "https://www.gravatar.com/avatar/205e460b479e8e5b48aec07710c08d50"}
                             name = {this.state.form.name || "Name LastName"}
@@ -78,7 +78,7 @@ class NewBadge extends React.Component{
                     </div>
                     </div>
                     <div className="col">
-                    <div className="col-6">
+                    <div className="col-5">
                         <BadgeForm 
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}

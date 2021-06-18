@@ -44,5 +44,10 @@
 
 .List{
    display: flex;
-   justify-content: center; 
+   justify-content: center;
 }
+
+.filter{
+    margin-left: 250px;
+}
+

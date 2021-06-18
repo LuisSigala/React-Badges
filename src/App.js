@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" component={Main}></Route>
           <Route exact path="/new" component={NewBadge}></Route>
           <Route exact path="/Sign_in" component={Sign_In}></Route>
-          <Route exact path="/Login" component={Login}></Route>
+          <Route exact path="/login" component={Login}></Route>
           <Route exact path="/Badges" component={Badges}></Route>
           <Route exact path="/:badgeId" component={BadgeDetails}></Route>
           <Route exact path="/:badgeId/edit" component={EditBadge}></Route>

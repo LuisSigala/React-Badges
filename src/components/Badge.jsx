@@ -18,7 +18,7 @@ class Badge extends Component{
                     <div className="Badge__userImage">
                         <img src={this.props.profile_picture_url} alt="profile_picture_url" />
                     </div>
-                    <h4 className="text-center mt-5">
+                    <h4 className="text-center topline">
                         {this.props.name} <i>{this.props.age}</i>
                     </h4>
                     <p className="text-center">{this.props.city}</p>                

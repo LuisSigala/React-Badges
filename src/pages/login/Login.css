@@ -1,7 +1,25 @@
-.form{
+.fact{
+    width: 150px;
+    max-width: 50px;
+}
+.td{
+    margin-right: 5px;
+}
+
+.fim{
+    align-items: center;
+    align-content: center;
     margin-top: 60px;
+    margin-left: 320px;
+    margin-right: 170px;
     border-width: 10px;
-    max-width: 1500px;
+    max-width: 900px;
+    height: 640px;
     border: 5px;
     background-color: darkgrey;
+} 
+
+.buton{
+    margin-left: 20px;
 }
+
